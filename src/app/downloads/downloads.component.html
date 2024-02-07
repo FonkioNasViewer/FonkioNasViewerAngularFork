@@ -1,0 +1,24 @@
+<mat-tab-group *ngIf="!isLoading && !isError">
+    <mat-tab label="En cours">
+        <app-download-item *ngFor="let download of downloadsInProgress" [download]="download"></app-download-item>
+    </mat-tab>
+    <mat-tab label="Terminés">
+        <app-download-item *ngFor="let download of downloadsCompleted" [download]="download"></app-download-item>
+    </mat-tab>
+    <mat-tab label="Arrêtés">
+        <app-download-item *ngFor="let download of downloadsStopped" [download]="download"></app-download-item>
+    </mat-tab>
+    <mat-tab label="Autres">
+        <app-download-item *ngFor="let download of downloadsOther" [download]="download"></app-download-item>
+    </mat-tab>
+</mat-tab-group>
+<div *ngIf="isLoading">
+    <h2>Récupération de la liste des téléchargements</h2>
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>  
+</div>
+<div *ngIf="isError">
+    <h3>{{ errorMessage }}</h3>
+</div>
+
+
+

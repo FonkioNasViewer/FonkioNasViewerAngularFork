@@ -1,0 +1,28 @@
+body {
+  padding-top: 70px;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+   
+}
+
+app-downloads {
+  margin-top: 200px;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  vertical-align: middle;
+}
+
+a {
+  color: white;
+}
