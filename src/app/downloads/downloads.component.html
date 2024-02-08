@@ -1,14 +1,26 @@
 <mat-tab-group *ngIf="!isLoading && !isError">
-    <mat-tab label="En cours">
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span [matBadge]="downloadsInProgress.length" matBadgeOverlap="false">En cours</span>
+        </ng-template>
         <app-download-item *ngFor="let download of downloadsInProgress" [download]="download"></app-download-item>
     </mat-tab>
-    <mat-tab label="Terminés">
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span [matBadge]="downloadsCompleted.length" matBadgeOverlap="false">Terminés</span>
+        </ng-template>
         <app-download-item *ngFor="let download of downloadsCompleted" [download]="download"></app-download-item>
     </mat-tab>
-    <mat-tab label="Arrêtés">
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span [matBadge]="downloadsStopped.length" matBadgeOverlap="false">Arrêtés</span>
+        </ng-template>
         <app-download-item *ngFor="let download of downloadsStopped" [download]="download"></app-download-item>
     </mat-tab>
-    <mat-tab label="Autres">
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span [matBadge]="downloadsOther.length" matBadgeOverlap="false">Autres</span>
+        </ng-template>
         <app-download-item *ngFor="let download of downloadsOther" [download]="download"></app-download-item>
     </mat-tab>
 </mat-tab-group>
