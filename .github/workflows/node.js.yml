@@ -36,7 +36,8 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: FonkioNasViewerAngular
-        path: ./
+        path: ./dist
     - name: Deploy dist
       run: |
         ls -al
+        
