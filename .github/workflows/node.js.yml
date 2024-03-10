@@ -28,16 +28,3 @@ jobs:
       with:
         name: FonkioNasViewerAngular
         path: dist/fonkio-nas-viewer-angular/
-  deploy:
-    runs-on: self-hosted
-    needs: build
-    steps:
-    - name: Download dist
-      uses: actions/download-artifact@v2
-      with:
-        name: FonkioNasViewerAngular
-        path: dist/fonkio-nas-viewer-angular/
-    - name: Deploy dist
-      run: |
-        ls -al
-        
