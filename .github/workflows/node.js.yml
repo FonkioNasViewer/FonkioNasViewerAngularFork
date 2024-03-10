@@ -23,4 +23,20 @@ jobs:
       run: npm install -g @angular/cli
     - name: Build
       run: ng build
-
+    - name: Upload dist
+      uses: actions/upload-artifact@v2
+      with:
+        name: FonkioNasViewerAngular
+        path: dist/fonkio-nas-viewer-angular/
+  deploy:
+    runs-on: self-hosted
+    needs: build
+    steps:
+    - name: Download dist
+      uses: actions/download-artifact@v2
+      with:
+        name: FonkioNasViewerAngular
+        path: ./
+    - name: Deploy dist
+      run: |
+        ls -al
